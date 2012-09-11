@@ -11,10 +11,14 @@ import com.zuehlke.zfb.model.RootModel;
  * @author rlo
  */
 public class NavigationControl {
-
+    
     private final RootModel rootModel;
-
+    
     public NavigationControl(RootModel rootModel) {
         this.rootModel = rootModel;
+    }
+    
+    public void changeDirectory(String gugus) {
+        this.rootModel.setCurrentDirectory(gugus);
     }
 }

@@ -4,24 +4,26 @@
  */
 package com.zuehlke.zfb.model;
 
-import java.io.File;
-
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 
 /**
  *
  * @author rlo
  */
-public class RootModel{
+public class RootModel {
 
-    private File currentDirectory;
-    
-    public File getCurrentDirectory() {
+    private StringProperty currentDirectory = new SimpleStringProperty(System.getProperty("user.home"));
+
+    public StringProperty currentDirectoryProperty() {
         return currentDirectory;
     }
 
-    public void setCurrentDirectory(File currentDirectory) {
-        this.currentDirectory = currentDirectory;
+    public final String getCurrentDirectory() {
+        return currentDirectory.get();
     }
-    
-    
+
+    public final void setCurrentDirectory(String currentDirectory) {
+        this.currentDirectory.set(currentDirectory);
+    }
 }
