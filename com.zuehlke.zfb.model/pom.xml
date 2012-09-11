@@ -11,5 +11,12 @@
     <name>com.zuehlke.zfb.model</name>
     <artifactId>com.zuehlke.zfb.model</artifactId>
     <packaging>jar</packaging>
+    
+    <dependencies>
+        <dependency>
+            <groupId>com.oracle</groupId>
+            <artifactId>javafx</artifactId>
+        </dependency>
+    </dependencies>
 
 </project>

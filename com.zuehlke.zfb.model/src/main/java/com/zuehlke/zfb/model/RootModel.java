@@ -6,14 +6,15 @@ package com.zuehlke.zfb.model;
 
 import java.io.File;
 
+
 /**
  *
  * @author rlo
  */
-public class RootModel {
+public class RootModel{
 
     private File currentDirectory;
-
+    
     public File getCurrentDirectory() {
         return currentDirectory;
     }
@@ -21,4 +22,6 @@ public class RootModel {
     public void setCurrentDirectory(File currentDirectory) {
         this.currentDirectory = currentDirectory;
     }
+    
+    
 }
