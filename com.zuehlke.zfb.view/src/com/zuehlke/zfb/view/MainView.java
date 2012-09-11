@@ -24,11 +24,13 @@ import javafx.stage.Stage;
  */
 public class MainView {
 
+    private RootModel rootModel = RootModel.getInstance();
+
     public void show(Stage primaryStage) throws IOException {
         AnchorPane page = (AnchorPane) FXMLLoader.load(MainView.class.getResource("ZFB.fxml"));
         Scene scene = new Scene(page);
         primaryStage.setScene(scene);
+        primaryStage.titleProperty().bindBidirectional(rootModel.currentDirectoryProperty());
         primaryStage.show();
     }
-   
 }

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane  xmlns:fx="http://javafx.com/fxml" fx:controller="com.zuehlke.zfb.control.NavigationControl">
+    <children>
+        <HBox id="HBox" alignment="CENTER" layoutX="14.0" layoutY="11.0" spacing="5.0">
+            <children>
+                <Label text="URL:" />
+                <TextField fx:id="currentUrl" prefWidth="738.0" HBox.hgrow="ALWAYS" />
+            </children>
+        </HBox>
+    </children>
+</AnchorPane>
+
+
+
