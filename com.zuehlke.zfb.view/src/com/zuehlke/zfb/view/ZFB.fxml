@@ -8,7 +8,7 @@
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane xmlns:fx="http://javafx.com/fxml">
+<AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.zuehlke.zfb.control.NavigationControl">
   <children>
     <AnchorPane prefHeight="600.0" prefWidth="800.0">
       <children>
@@ -21,7 +21,7 @@
         <HBox id="HBox" alignment="CENTER" layoutX="14.0" layoutY="11.0" spacing="5.0">
           <children>
             <Label text="URL:" />
-            <TextField fx:id="currentUrl" prefWidth="738.0" HBox.hgrow="ALWAYS" />
+            <TextField id="currentUrl" fx:id="urlTextField" prefWidth="738.0" HBox.hgrow="ALWAYS" />
           </children>
         </HBox>
       </children>
