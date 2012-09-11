@@ -30,14 +30,7 @@ public class NavigationControl implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         currentUrl.textProperty().bindBidirectional(rootModel.currentDirectoryProperty());
-    }
-
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        this.rootModel = ModelLoader.getInstance().getRootModel();
-        urlTextField.setText("blabla");
-    }
-    
+    }  
     
 
 }
