@@ -4,6 +4,7 @@
  */
 package com.zuehlke.zfb.control;
 
+import com.zuehlke.zfb.model.ModelLoader;
 import com.zuehlke.zfb.model.RootModel;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -30,4 +31,13 @@ public class NavigationControl implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         currentUrl.textProperty().bindBidirectional(rootModel.currentDirectoryProperty());
     }
+
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+        this.rootModel = ModelLoader.getInstance().getRootModel();
+        urlTextField.setText("blabla");
+    }
+    
+    
+
 }
