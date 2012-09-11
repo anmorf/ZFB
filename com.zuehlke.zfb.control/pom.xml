@@ -6,6 +6,7 @@
         <groupId>com.zuehlke</groupId>
         <artifactId>com.zuehlke.zfb.parent</artifactId>
         <version>1.0-SNAPSHOT</version>
+        <relativePath>../com.zuehlke.zfb.parent/pom.xml</relativePath>
     </parent>
 
     <groupId>com.zuehlke</groupId>
