@@ -24,38 +24,11 @@ import javafx.stage.Stage;
  */
 public class MainView {
 
-    private final RootModel rootModel;
-    private final NavigationControl navigationControl;
-
-    public MainView(RootModel rootModel, NavigationControl navigationControl) {
-        this.rootModel = rootModel;
-        this.navigationControl = navigationControl;
-    }
-
     public void show(Stage primaryStage) throws IOException {
-        Label label = new Label(null);
-        label.textProperty().bindBidirectional(rootModel.currentDirectoryProperty());
-        
-        label.addEventHandler(MouseEvent.MOUSE_PRESSED,  new EventHandler<MouseEvent>() {
-            @Override public void handle(MouseEvent e) {
-               navigationControl.changeDirectory("gugus");
-             }
-        });
-        
-        
-        StackPane root = new StackPane();
-        root.getChildren().add(label);
-        
-        Scene scene = new Scene(root, 300, 250);
-
-        primaryStage.setTitle("Hello World!");
-        primaryStage.setScene(scene);
-        
         AnchorPane page = (AnchorPane) FXMLLoader.load(MainView.class.getResource("ZFB.fxml"));
-        scene = new Scene(page);
+        Scene scene = new Scene(page);
         primaryStage.setScene(scene);
-        
         primaryStage.show();
     }
-    
+   
 }

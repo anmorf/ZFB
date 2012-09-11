@@ -13,6 +13,14 @@ import javafx.beans.property.StringProperty;
  */
 public class RootModel {
 
+    private static RootModel instance;
+
+    public static RootModel getInstance() {
+        if (instance == null) {
+            instance = new RootModel();
+        }
+        return instance;
+    }
     private StringProperty currentDirectory = new SimpleStringProperty(System.getProperty("user.home"));
 
     public StringProperty currentDirectoryProperty() {
