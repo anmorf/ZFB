@@ -6,12 +6,15 @@ package com.zuehlke.zfb.view;
 
 import com.zuehlke.zfb.control.NavigationControl;
 import com.zuehlke.zfb.model.RootModel;
+import java.io.IOException;
 
 
 import javafx.event.EventHandler;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
@@ -29,7 +32,7 @@ public class MainView {
         this.navigationControl = navigationControl;
     }
 
-    public void show(Stage primaryStage) {
+    public void show(Stage primaryStage) throws IOException {
         Label label = new Label(null);
         label.textProperty().bindBidirectional(rootModel.currentDirectoryProperty());
         
@@ -47,6 +50,11 @@ public class MainView {
 
         primaryStage.setTitle("Hello World!");
         primaryStage.setScene(scene);
+        
+        AnchorPane page = (AnchorPane) FXMLLoader.load(MainView.class.getResource("ZFB.fxml"));
+        scene = new Scene(page);
+        primaryStage.setScene(scene);
+        
         primaryStage.show();
     }
     
