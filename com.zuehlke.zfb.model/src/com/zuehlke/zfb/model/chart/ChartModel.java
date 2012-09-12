@@ -13,6 +13,7 @@ import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.scene.chart.PieChart;
 import javafx.scene.chart.PieChart.Data;
 
 /**
@@ -47,13 +48,10 @@ public class ChartModel implements ChangeListener<File> {
     public void changed(ObservableValue<? extends File> ov, File oldValue, File newValue) {
         if (newValue != null) {
             File[] listFiles = newValue.listFiles();
-            List<Data> data = new ArrayList<>();
-            if (listFiles != null) {
-                for (File file : listFiles) {
-                    data.add(new Data(file.getName(), file.getName().length()));
-                }
+            ObservableList<PieChart.Data> chartDatas = FXCollections.observableArrayList();
+            for (final File file : listFiles) {
+                chartDatas.add(new Data(file.getName(), file.getName().length()));
             }
-            ObservableList<Data> chartDatas = FXCollections.observableArrayList(data);
             chartData.set(chartDatas);
         }
     }

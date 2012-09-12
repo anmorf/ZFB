@@ -5,6 +5,7 @@
 package com.zuehlke.zfb.control.chart;
 
 import com.zuehlke.zfb.model.RootModel;
+import java.io.File;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -15,8 +16,10 @@ import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.chart.PieChart;
 import javafx.scene.chart.PieChart.Data;
+import javafx.scene.effect.Glow;
 import javafx.scene.input.MouseEvent;
 import javax.swing.text.StyledEditorKit;
 
@@ -41,13 +44,35 @@ public class ChartControl implements Initializable, ChangeListener<ObservableLis
 
     @Override
     public void changed(ObservableValue<? extends ObservableList<Data>> ov, ObservableList<Data> t, ObservableList<Data> newData) {
-        for (final Data data : newData) {
-            data.getNode().addEventHandler(MouseEvent.MOUSE_PRESSED, new EventHandler<MouseEvent>() {
-                @Override
-                public void handle(MouseEvent event) {
-                    String name = data.getName();
-                }
-            });
+        for (PieChart.Data data : newData) {
+            addMouseEvents(data);
         }
+    }
+
+    private void addMouseEvents(final PieChart.Data data) {
+        final Node node = data.getNode();
+
+        node.setOnMousePressed(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent e) {
+                String name = data.getName();
+                File currentDirectory = rootModel.getCurrentDirectory();
+                String newFile = currentDirectory.getAbsolutePath() + File.separator + name;
+                rootModel.setCurrentDirectory(new File(newFile));
+            }
+        });
+
+        node.setOnMouseEntered(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent arg0) {
+                node.setEffect(new Glow());
+            }
+        });
+        node.setOnMouseExited(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent arg0) {
+                node.setEffect(null);
+            }
+        });
     }
 }
