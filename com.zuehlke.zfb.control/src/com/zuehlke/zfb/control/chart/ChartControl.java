@@ -5,6 +5,7 @@
 package com.zuehlke.zfb.control.chart;
 
 import com.zuehlke.zfb.model.RootModel;
+import com.zuehlke.zfb.service.NavigationService;
 import java.io.File;
 
 import java.net.URL;
@@ -35,11 +36,10 @@ public class ChartControl implements Initializable, ChangeListener<ObservableLis
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        pieChart.dataProperty().addListener(this);
+        pieChart.dataProperty().bindBidirectional(rootModel.getChartModel().chartDataProperty());
         pieChart.setTitle("Chart Title");
         pieChart.setLegendVisible(true);
-        pieChart.dataProperty().bindBidirectional(rootModel.getChartModel().chartDataProperty());
-
-        pieChart.dataProperty().addListener(this);
     }
 
     @Override
@@ -55,10 +55,8 @@ public class ChartControl implements Initializable, ChangeListener<ObservableLis
         node.setOnMousePressed(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent e) {
-                String name = data.getName();
-                File currentDirectory = rootModel.getCurrentDirectory();
-                String newFile = currentDirectory.getAbsolutePath() + File.separator + name;
-                rootModel.setCurrentDirectory(new File(newFile));
+                String newFile = rootModel.getCurrentDirectory().getAbsolutePath() + File.separator + data.getName();
+                NavigationService.getInstance().changeDirectory(new File(newFile));
             }
         });
 

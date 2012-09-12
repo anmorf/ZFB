@@ -5,7 +5,12 @@
 package com.zuehlke.zfb.model;
 
 import com.zuehlke.zfb.model.chart.ChartModel;
+import java.awt.Desktop;
+
 import java.io.File;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 
@@ -29,7 +34,7 @@ public class RootModel {
     private ChartModel chartModel;
 
     public RootModel() {
-        currentDirectory = new SimpleObjectProperty<>(new File(System.getProperty("user.home")));
+        currentDirectory = new SimpleObjectProperty<>(new File("C:\\Users"));
         chartModel = new ChartModel(currentDirectory);
     }
 
