@@ -50,7 +50,7 @@ public class ChartModel implements ChangeListener<File> {
             File[] listFiles = newValue.listFiles();
             ObservableList<PieChart.Data> chartDatas = FXCollections.observableArrayList();
             for (final File file : listFiles) {
-                PieChart.Data data = null; 
+                PieChart.Data data = new Data(file.getName(), file.getName().length()); 
                 if (file.isDirectory()) {
                     data = new Data(file.getName(), file.getName().length());
                 } else {
@@ -58,8 +58,7 @@ public class ChartModel implements ChangeListener<File> {
                 }
                 chartDatas.add(data);
             }
-
-            
+            chartData.set(chartDatas);
         }
     }
 }
