@@ -16,7 +16,7 @@
                 <SplitPane dividerPositions="0.3007518796992481" focusTraversable="true" prefHeight="477.0" prefWidth="800.0" AnchorPane.bottomAnchor="67.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                     <items>
                         <fx:include source="tree.fxml"/>
-                         <fx:include source="chartview/chartView.fxml" minHeight="-Infinity" minWidth="-Infinity" />
+                        <fx:include source="chartview/chartView.fxml" minHeight="-Infinity" minWidth="-Infinity" />
                     </items>
                 </SplitPane>
                 <AnchorPane layoutX="-1.0" layoutY="477.0" prefHeight="67.0" prefWidth="800.0" />

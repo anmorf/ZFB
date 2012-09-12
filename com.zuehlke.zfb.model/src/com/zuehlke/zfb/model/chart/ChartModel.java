@@ -7,7 +7,6 @@ package com.zuehlke.zfb.model.chart;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
-import javafx.beans.binding.ListBinding;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.value.ChangeListener;
@@ -49,8 +48,10 @@ public class ChartModel implements ChangeListener<File> {
         if (newValue != null) {
             File[] listFiles = newValue.listFiles();
             List<Data> data = new ArrayList<>();
-            for (File file : listFiles) {
-                data.add(new Data(file.getName(), file.getName().length()));
+            if (listFiles != null) {
+                for (File file : listFiles) {
+                    data.add(new Data(file.getName(), file.getName().length()));
+                }
             }
             ObservableList<Data> chartDatas = FXCollections.observableArrayList(data);
             chartData.set(chartDatas);
