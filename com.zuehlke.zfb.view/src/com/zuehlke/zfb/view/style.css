@@ -1,0 +1,11 @@
+.list-view{
+    -fx-background-color: #cccccc;
+}
+
+.list-cell{
+    -fx-background-color: #cccccc;
+}
+
+#status-bar-anchor-pane {
+    -fx-background-color: #cccccc;
+}
