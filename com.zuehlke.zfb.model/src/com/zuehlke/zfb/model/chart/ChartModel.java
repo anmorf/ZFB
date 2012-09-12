@@ -49,8 +49,10 @@ public class ChartModel implements ChangeListener<File> {
         if (newValue != null) {
             File[] listFiles = newValue.listFiles();
             ObservableList<PieChart.Data> chartDatas = FXCollections.observableArrayList();
-            for (final File file : listFiles) {
-                chartDatas.add(new Data(file.getName(), file.getName().length()));
+            if (listFiles != null) {
+                for (final File file : listFiles) {
+                    chartDatas.add(new Data(file.getName(), file.getName().length()));
+                }
             }
             chartData.set(chartDatas);
         }
