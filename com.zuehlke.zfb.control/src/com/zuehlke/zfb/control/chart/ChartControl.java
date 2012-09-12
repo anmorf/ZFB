@@ -35,11 +35,10 @@ public class ChartControl implements Initializable, ChangeListener<ObservableLis
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        pieChart.dataProperty().addListener(this);
+        pieChart.dataProperty().bindBidirectional(rootModel.getChartModel().chartDataProperty());
         pieChart.setTitle("Chart Title");
         pieChart.setLegendVisible(true);
-        pieChart.dataProperty().bindBidirectional(rootModel.getChartModel().chartDataProperty());
-
-        pieChart.dataProperty().addListener(this);
     }
 
     @Override
@@ -55,9 +54,7 @@ public class ChartControl implements Initializable, ChangeListener<ObservableLis
         node.setOnMousePressed(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent e) {
-                String name = data.getName();
-                File currentDirectory = rootModel.getCurrentDirectory();
-                String newFile = currentDirectory.getAbsolutePath() + File.separator + name;
+                String newFile = rootModel.getCurrentDirectory().getAbsolutePath() + File.separator + data.getName();
                 rootModel.setCurrentDirectory(new File(newFile));
             }
         });
