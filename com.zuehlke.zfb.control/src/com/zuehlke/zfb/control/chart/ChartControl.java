@@ -5,6 +5,7 @@
 package com.zuehlke.zfb.control.chart;
 
 import com.zuehlke.zfb.model.RootModel;
+import com.zuehlke.zfb.service.NavigationService;
 import java.io.File;
 
 import java.net.URL;
@@ -55,7 +56,7 @@ public class ChartControl implements Initializable, ChangeListener<ObservableLis
             @Override
             public void handle(MouseEvent e) {
                 String newFile = rootModel.getCurrentDirectory().getAbsolutePath() + File.separator + data.getName();
-                rootModel.setCurrentDirectory(new File(newFile));
+                NavigationService.getInstance().changeDirectory(new File(newFile));
             }
         });
 
