@@ -33,5 +33,6 @@ public class MainView {
         primaryStage.setScene(scene);
         primaryStage.titleProperty().bindBidirectional(rootModel.currentDirectoryProperty(), FileConverter.getInstance());
         primaryStage.show();
+        scene.getStylesheets().add(MainView.class.getResource("style.css").toExternalForm());
     }
 }

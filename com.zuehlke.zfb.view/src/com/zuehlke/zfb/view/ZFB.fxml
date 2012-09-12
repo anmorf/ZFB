@@ -9,7 +9,8 @@
 <?import javafx.scene.layout.*?>
 
 <AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns:fx="http://javafx.com/fxml">
-    <children>
-        <fx:include source="navigationBar.fxml"/>
-    </children>
+  <children>
+    <fx:include source="navigationBar.fxml" />
+    <fx:include source="StatusBar.fxml" prefHeight="70.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+  </children>
 </AnchorPane>
