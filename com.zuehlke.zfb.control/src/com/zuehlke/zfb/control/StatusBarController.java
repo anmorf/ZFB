@@ -28,6 +28,7 @@ import javafx.scene.image.ImageView;
  * @author bdo
  */
 public class StatusBarController implements Initializable {
+
     private RootModel rootModel = RootModel.getInstance();
     @FXML
     Label imageUrl;
@@ -41,30 +42,30 @@ public class StatusBarController implements Initializable {
         populate(rootModel.getCurrentDirectory());
         rootModel.currentDirectoryProperty().addListener(new ChangeListener<File>() {
             @Override
-            public void changed(ObservableValue<? extends File> ov, File t, File t1) {           
+            public void changed(ObservableValue<? extends File> ov, File t, File t1) {
                 populate(t1);
             }
         });
     }
 
     private void populate(File file) {
-        ObservableList<String> list=FXCollections.observableArrayList();
-        
-        if (file==null || !file.exists()) {
+        ObservableList<String> list = FXCollections.observableArrayList();
+
+        if (file == null || !file.exists()) {
             imageView.setImage(null);
         } else {
-            Date d=new Date(file.lastModified());
-            list.add("last modified: "+d);
-        
+            Date d = new Date(file.lastModified());
+            list.add("last modified: " + d);
+
             if (file.isDirectory()) {
                 imageView.setImage(new Image("com/zuehlke/zfb/view/folder.png"));
-                list.add("contained files: "+file.listFiles().length);
+                list.add("contained files: " + (file.listFiles() != null ? +file.listFiles().length : 0));
             } else {
                 imageView.setImage(new Image("com/zuehlke/zfb/view/file.png"));
-                list.add("size: "+file.length()/1000+" KB");
+                list.add("size: " + file.length() / 1000 + " KB");
             }
         }
-        
+
         listView.setItems(list);
     }
 }
