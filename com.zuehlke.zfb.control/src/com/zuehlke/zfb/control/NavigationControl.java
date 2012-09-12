@@ -12,7 +12,6 @@ import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TextField;
-import javafx.util.StringConverter;
 
 /**
  *
@@ -21,6 +20,7 @@ import javafx.util.StringConverter;
 public class NavigationControl implements Initializable {
 
     private RootModel rootModel = RootModel.getInstance();
+    
     @FXML
     private TextField currentUrl;
 

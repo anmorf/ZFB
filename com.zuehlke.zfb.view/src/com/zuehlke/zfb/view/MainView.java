@@ -4,19 +4,14 @@
  */
 package com.zuehlke.zfb.view;
 
-import com.zuehlke.zfb.control.NavigationControl;
 import com.zuehlke.zfb.control.util.FileConverter;
 import com.zuehlke.zfb.model.RootModel;
 import java.io.IOException;
 
 
-import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
 /**
