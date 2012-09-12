@@ -6,7 +6,6 @@ package com.zuehlke.zfb.view;
 
 import com.sun.javaws.Main;
 import com.zuehlke.zfb.control.NavigationControl;
-import com.zuehlke.zfb.model.ModelLoader;
 import com.zuehlke.zfb.model.RootModel;
 import java.io.IOException;
 import java.util.logging.Level;

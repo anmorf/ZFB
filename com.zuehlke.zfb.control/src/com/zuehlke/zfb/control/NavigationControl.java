@@ -4,7 +4,7 @@
  */
 package com.zuehlke.zfb.control;
 
-import com.zuehlke.zfb.model.ModelLoader;
+import com.zuehlke.zfb.control.util.FileConverter;
 import com.zuehlke.zfb.model.RootModel;
 import java.io.File;
 import java.net.URL;
@@ -23,26 +23,28 @@ public class NavigationControl implements Initializable {
 
     private RootModel rootModel = RootModel.getInstance();
     
+    private File file;
+    
     @FXML
     private Button browseButton;
     
     @FXML
     private TextField currentUrl;
-    private File file;
-
+    
     public void changeDirectory() {
-        this.rootModel.setCurrentDirectory("bla");
+        this.rootModel.setCurrentDirectory(new File(System.getProperty("java.home")));
     }
 
-    @Override
+    @Override 
     public void initialize(URL url, ResourceBundle rb) {
-        currentUrl.textProperty().bindBidirectional(rootModel.currentDirectoryProperty());
+        currentUrl.textProperty().bindBidirectional(rootModel.currentDirectoryProperty(),
+                FileConverter.getInstance());
     }
     
     public void fireButtonAction() {
         FileChooser fileChooser = new FileChooser();
         file = fileChooser.showOpenDialog(null);
         currentUrl.setText(file.getPath());
-    }
-    
+        rootModel.setCurrentDirectory(file);
+    }   
 }
