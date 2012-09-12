@@ -5,6 +5,7 @@
 package com.zuehlke.zfb.control.chart;
 
 import com.zuehlke.zfb.model.RootModel;
+import java.io.File;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -24,7 +25,7 @@ import javax.swing.text.StyledEditorKit;
  *
  * @author rlo
  */
-public class ChartControl implements Initializable, ChangeListener<ObservableList<Data>> {
+public class ChartControl implements Initializable, ChangeListener<ObservableList<Data>>{
 
     private RootModel rootModel = RootModel.getInstance();
     @FXML
@@ -46,8 +47,12 @@ public class ChartControl implements Initializable, ChangeListener<ObservableLis
                 @Override
                 public void handle(MouseEvent event) {
                     String name = data.getName();
+                    File currentDirectory = rootModel.getCurrentDirectory();
+                    String newFile = currentDirectory.getAbsolutePath() + File.separator + name;
+                    rootModel.setCurrentDirectory(new File(newFile));
                 }
             });
         }
     }
+
 }
