@@ -4,6 +4,7 @@
  */
 package com.zuehlke.zfb.model;
 
+import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
@@ -21,6 +22,7 @@ public class RootModel {
         }
         return instance;
     }
+    
     private StringProperty currentDirectory = new SimpleStringProperty(System.getProperty("user.home"));
 
     public StringProperty currentDirectoryProperty() {
