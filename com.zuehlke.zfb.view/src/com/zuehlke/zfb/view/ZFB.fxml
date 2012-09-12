@@ -9,8 +9,19 @@
 <?import javafx.scene.layout.*?>
 
 <AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns:fx="http://javafx.com/fxml">
-  <children>
-    <fx:include source="navigationBar.fxml" />
-    <fx:include source="StatusBar.fxml" prefHeight="70.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
-  </children>
+    <children>
+        <fx:include source="navigationBar.fxml" minHeight="-Infinity" minWidth="-Infinity" />
+        <AnchorPane prefHeight="544.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="56.0">
+            <children>
+                <SplitPane dividerPositions="0.3007518796992481" focusTraversable="true" prefHeight="477.0" prefWidth="800.0" AnchorPane.bottomAnchor="67.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <items>
+                        <fx:include source="tree.fxml"/>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" />
+                    </items>
+                </SplitPane>
+                <AnchorPane layoutX="-1.0" layoutY="477.0" prefHeight="67.0" prefWidth="800.0" />
+            </children>
+        </AnchorPane>
+        <fx:include source="StatusBar.fxml" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"/>
+    </children>
 </AnchorPane>
