@@ -29,7 +29,7 @@ public class RootModel {
     private ChartModel chartModel;
 
     public RootModel() {
-        currentDirectory = new SimpleObjectProperty<>(new File(System.getProperty("user.home")));
+        currentDirectory = new SimpleObjectProperty<>(new File("C:\\Users"));
         chartModel = new ChartModel(currentDirectory);
     }
 

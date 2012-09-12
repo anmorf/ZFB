@@ -7,8 +7,6 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefWidth="487.0" xmlns:fx="http://javafx.com/fxml" fx:controller="com.zuehlke.zfb.control.chart.ChartControl">
-  <children>
-    <PieChart fx:id="pieChart"  />
-  </children>
-</AnchorPane>
+
+<PieChart xmlns:fx="http://javafx.com/fxml" fx:id="pieChart" fx:controller="com.zuehlke.zfb.control.chart.ChartControl"  />
+
