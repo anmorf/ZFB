@@ -2,20 +2,22 @@
 
 <?import java.lang.*?>
 <?import java.util.*?>
+<?import javafx.geometry.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane  xmlns:fx="http://javafx.com/fxml" fx:controller="com.zuehlke.zfb.control.NavigationControl">
-    <children>
-        <HBox id="HBox" alignment="CENTER" layoutX="14.0" layoutY="11.0" spacing="5.0">
-            <children>
-                <Label text="URL:" />
-                <TextField fx:id="currentUrl" prefWidth="738.0" HBox.hgrow="ALWAYS" />
-            </children>
-        </HBox>
-    </children>
+<AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.zuehlke.zfb.control.NavigationControl">
+  <children>
+    <HBox id="HBox" alignment="CENTER" layoutX="14.0" layoutY="11.0" spacing="5.0">
+      <children>
+        <Label text="URL:" />
+        <TextField fx:id="currentUrl" prefWidth="565.0" />
+        <Button fx:id="browseButton" contentDisplay="CENTER" mnemonicParsing="false" onAction="#fireButtonAction" text="Browse" />
+      </children>
+      <padding>
+        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+      </padding>
+    </HBox>
+  </children>
 </AnchorPane>
-
-
-
