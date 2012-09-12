@@ -5,7 +5,7 @@ import javafx.scene.control.TreeItem;
 
 public class TreeModel {
 
-    private final static int MAX_DEPTH = 3;
+    private final static int MAX_DEPTH = 2;
     private static TreeModel instance;
     private TreeItem<String> root = new TreeItem<>("FileSystems");
 

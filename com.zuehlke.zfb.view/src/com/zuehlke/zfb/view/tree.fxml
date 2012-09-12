@@ -6,8 +6,4 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.zuehlke.zfb.control.TreeControl">
-    <children>
-        <TreeView fx:id="tree" />
-    </children>
-</AnchorPane>
+<TreeView fx:id="tree" xmlns:fx="http://javafx.com/fxml" fx:controller="com.zuehlke.zfb.control.TreeControl"/>

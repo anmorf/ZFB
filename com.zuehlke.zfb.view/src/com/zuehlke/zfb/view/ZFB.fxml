@@ -15,11 +15,7 @@
             <children>
                 <SplitPane dividerPositions="0.3007518796992481" focusTraversable="true" prefHeight="477.0" prefWidth="800.0" AnchorPane.bottomAnchor="67.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                     <items>
-                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
-                            <children>
-                                <fx:include source="tree.fxml"/>
-                            </children>
-                        </AnchorPane>
+                        <fx:include source="tree.fxml"/>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" />
                     </items>
                 </SplitPane>

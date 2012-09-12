@@ -5,7 +5,6 @@
 package com.zuehlke.zfb.control;
 
 import com.zuehlke.zfb.model.TreeModel;
-import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
