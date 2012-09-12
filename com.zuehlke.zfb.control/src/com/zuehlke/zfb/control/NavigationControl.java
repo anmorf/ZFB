@@ -44,7 +44,6 @@ public class NavigationControl implements Initializable {
     public void fireButtonAction() {
         FileChooser fileChooser = new FileChooser();
         file = fileChooser.showOpenDialog(null);
-//        currentUrl.setText(file.getPath());
         rootModel.setCurrentDirectory(file);
         System.out.println(currentUrl.getText());
     }   

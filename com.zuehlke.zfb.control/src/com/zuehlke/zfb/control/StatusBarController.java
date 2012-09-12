@@ -20,6 +20,8 @@ import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.ListView;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
 /**
  *
@@ -28,37 +30,37 @@ import javafx.scene.control.ListView;
 public class StatusBarController implements Initializable {
     private RootModel rootModel = RootModel.getInstance();
     @FXML
-    Label label;
+    Label imageUrl;
     @FXML
     ListView listView;
+    @FXML
+    ImageView imageView;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        populate();
-        
+        populate(rootModel.getCurrentDirectory());
         rootModel.currentDirectoryProperty().addListener(new ChangeListener<File>() {
             @Override
             public void changed(ObservableValue<? extends File> ov, File t, File t1) {           
-                populate();
+                populate(t1);
             }
         });
     }
 
-    private void populate() {
-        File file=rootModel.getCurrentDirectory();
+    private void populate(File file) {
         ObservableList<String> list=FXCollections.observableArrayList();
         
-        if (!file.exists()) {
-            label.setText(rootModel.getCurrentDirectory().getAbsolutePath() + " is not a valid path");
+        if (file==null || !file.exists()) {
+            imageView.setImage(null);
         } else {
             Date d=new Date(file.lastModified());
             list.add("last modified: "+d);
         
             if (file.isDirectory()) {
-                label.setText(rootModel.getCurrentDirectory().getAbsolutePath() + " is a directory");
+                imageView.setImage(new Image("com/zuehlke/zfb/view/folder.png"));
                 list.add("contained files: "+file.listFiles().length);
             } else {
-                label.setText(rootModel.getCurrentDirectory().getAbsolutePath() + " is a file");
+                imageView.setImage(new Image("com/zuehlke/zfb/view/file.png"));
                 list.add("size: "+file.length()/1000+" KB");
             }
         }
