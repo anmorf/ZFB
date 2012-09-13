@@ -9,6 +9,7 @@ import com.zuehlke.zfb.service.NavigationService;
 import java.io.File;
 
 import java.net.URL;
+import java.util.Map;
 import java.util.ResourceBundle;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -54,7 +55,9 @@ public class ChartControl implements Initializable, ChangeListener<ObservableLis
         node.setOnMousePressed(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent e) {
-                String newFile = rootModel.getCurrentDirectory().getAbsolutePath() + File.separator + data.getName();
+                Map<Data, File> mapModel = rootModel.getChartModel().getMapModel();
+                File file = mapModel.get(data);
+                String newFile = rootModel.getCurrentDirectory().getAbsolutePath() + File.separator + file.getName();
                 NavigationService.getInstance().changeDirectory(new File(newFile));
             }
         });
