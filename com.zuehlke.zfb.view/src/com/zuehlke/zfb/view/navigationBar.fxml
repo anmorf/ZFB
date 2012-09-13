@@ -12,9 +12,15 @@
         <Label text="URL:" BorderPane.alignment="CENTER" />
     </left>
     <center>
-        <TextField fx:id="currentUrl" />
+                <TextField fx:id="currentUrl" />
     </center>
     <right>
-        <Button fx:id="browseButton" mnemonicParsing="false" onAction="#fireButtonAction" text="Browse" BorderPane.alignment="CENTER" />
+        <HBox>
+            <children>
+                <Button fx:id="browseButton" mnemonicParsing="false" onAction="#fireButtonAction" text="Browse" BorderPane.alignment="CENTER" />
+                <TextField fx:id="searchField" />
+                <Button fx:id="searchButton" mnemonicParsing="false" onAction="#searchButtonAction" text="Search" />
+            </children>
+        </HBox>
     </right>
 </BorderPane>

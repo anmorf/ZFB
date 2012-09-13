@@ -35,6 +35,8 @@ public class NavigationControl implements Initializable {
     private Button browseButton;
     @FXML
     private TextField currentUrl;
+    @FXML private Button searchButton;
+    @FXML private TextField searchField;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -102,4 +104,8 @@ public class NavigationControl implements Initializable {
         NavigationService.getInstance().changeDirectory(file);
     }
     
+    public void searchButtonAction() {
+        String input = searchField.getText();
+        System.out.println(input);
+    }
 }
