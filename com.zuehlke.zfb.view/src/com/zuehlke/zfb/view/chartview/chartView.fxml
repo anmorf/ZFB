@@ -7,6 +7,4 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
-<PieChart xmlns:fx="http://javafx.com/fxml" fx:id="pieChart" fx:controller="com.zuehlke.zfb.control.chart.ChartControl"  />
-
+<PieChart fx:id="pieChart" legendVisible="false" xmlns:fx="http://javafx.com/fxml" fx:controller="com.zuehlke.zfb.control.chart.ChartControl" />
