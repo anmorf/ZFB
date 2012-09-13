@@ -4,6 +4,9 @@ import com.zuehlke.zfb.model.RootModel;
 import java.net.URL;
 import java.util.Random;
 import java.util.ResourceBundle;
+import java.util.Timer;
+import java.util.TimerTask;
+import javafx.application.ConditionalFeature;
 import javafx.application.Platform;
 import javafx.concurrent.Task;
 import javafx.fxml.FXML;
@@ -31,7 +34,6 @@ public class DefaultControl implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         loadingWithThread(new ProgressIndicator(0));
         loadingWithWorker(new ProgressBar());
-
     }
 
     private void loadingWithThread(final ProgressIndicator pi) {
@@ -82,16 +84,22 @@ public class DefaultControl implements Initializable {
             protected void running() {
                 defaultContent.bottomProperty().setValue(bar);
             }
-            
 
             @Override
             protected void succeeded() {
                 defaultContent.bottomProperty().setValue(null);
             }
-            
-            
         };
         bar.progressProperty().bind(task.progressProperty());
         new Thread(task).start();
+    }
+
+    private void loadTimer() {
+        new Timer().schedule(
+                new TimerTask() {
+                    @Override
+                    public void run() {
+                    }
+                }, 0, 5000);
     }
 }
