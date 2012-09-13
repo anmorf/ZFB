@@ -8,7 +8,7 @@
 
 <AnchorPane id="AnchorPane" prefHeight="26.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml" fx:controller="com.zuehlke.zfb.control.MenuController">
   <children>
-    <MenuBar layoutY="2.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+    <MenuBar AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
       <menus>
         <Menu mnemonicParsing="false" text="File">
           <items>
@@ -22,7 +22,7 @@
         </Menu>
         <Menu mnemonicParsing="false" text="Help">
           <items>
-            <MenuItem mnemonicParsing="false" text="About" />
+            <MenuItem onAction="#showHelp" mnemonicParsing="false" text="About" fx:id="help" />
           </items>
         </Menu>
       </menus>

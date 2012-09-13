@@ -13,12 +13,18 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 
 /**
  *
  * @author rlo
  */
 public class RootModel {
+    
+    
+    public static final String CHART_VIEW = "/com/zuehlke/zfb/view/chartview/chartView.fxml";
+    public static final String DEFAUL_VIEW = "/com/zuehlke/zfb/view/content/default.fxml";
 
     private static RootModel instance;
 
@@ -30,12 +36,14 @@ public class RootModel {
     }
     
     private ObjectProperty<File> currentDirectory;
+    private StringProperty currentView;
     
     private ChartModel chartModel;
 
     public RootModel() {
         currentDirectory = new SimpleObjectProperty<>(new File("C:\\Users"));
         chartModel = new ChartModel(currentDirectory);
+        currentView = new SimpleStringProperty(CHART_VIEW);
     }
 
     public ObjectProperty<File> currentDirectoryProperty() {
@@ -56,5 +64,13 @@ public class RootModel {
 
     public void setChartModel(ChartModel chartModel) {
         this.chartModel = chartModel;
+    }
+
+    public StringProperty getCurrentView() {
+        return currentView;
+    }
+
+    public void setCurrentView(StringProperty currentView) {
+        this.currentView = currentView;
     }
 }
