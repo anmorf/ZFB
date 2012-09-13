@@ -8,9 +8,11 @@
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="status-bar-anchor-pane" minWidth="500.0" prefHeight="70.0" prefWidth="800.0" xmlns:fx="http://javafx.com/fxml" fx:controller="com.zuehlke.zfb.control.StatusBarController">
-    <children>
-        <ListView fx:id="listView" minWidth="350.0" prefHeight="71.0" prefWidth="350.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-        <ImageView fx:id="imageView" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="5.0"/>           
-    </children>
-</AnchorPane>
+<BorderPane id="status-bar-container" xmlns:fx="http://javafx.com/fxml" fx:controller="com.zuehlke.zfb.control.StatusBarController">
+    <left>
+        <ImageView fx:id="imageView" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true"/>   
+    </left>
+    <center>       
+        <ListView fx:id="listView"  prefHeight="60.0"   /> 
+    </center>
+</BorderPane>
