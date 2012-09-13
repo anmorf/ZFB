@@ -7,7 +7,6 @@ package com.zuehlke.zfb.control;
 import com.zuehlke.zfb.control.util.FileConverter;
 import com.zuehlke.zfb.model.RootModel;
 import com.zuehlke.zfb.service.NavigationService;
-import java.awt.Color;
 import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -16,7 +15,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-import javafx.scene.effect.BlendMode;
 import javafx.scene.effect.Reflection;
 import javafx.scene.input.DragEvent;
 import javafx.scene.input.Dragboard;
@@ -45,6 +43,7 @@ public class NavigationControl implements Initializable {
         
         // add the drag-drop functionality
         currentUrl.setOnDragEntered(new EventHandler<DragEvent>() {
+            @Override
             public void handle(DragEvent event) {
                 if (event.getGestureSource() != currentUrl
                         && event.getDragboard().hasString()) {
@@ -58,6 +57,7 @@ public class NavigationControl implements Initializable {
             }
         });
         currentUrl.setOnDragExited(new EventHandler<DragEvent>() {
+            @Override
             public void handle(DragEvent event) {
                  if (event.getGestureSource() != currentUrl &&
                          event.getDragboard().hasString()) { 
@@ -71,6 +71,7 @@ public class NavigationControl implements Initializable {
             }
         });
         currentUrl.setOnDragOver(new EventHandler<DragEvent>() {
+            @Override
             public void handle(DragEvent event) {
                 if (event.getGestureSource() != currentUrl
                         && event.getDragboard().hasString()) {
@@ -81,6 +82,7 @@ public class NavigationControl implements Initializable {
             }
         });
         currentUrl.setOnDragDropped(new EventHandler<DragEvent>() {
+            @Override
             public void handle(DragEvent event) {
                 System.out.println("dragdropped");
                 Dragboard db = event.getDragboard();
