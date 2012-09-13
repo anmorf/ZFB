@@ -45,10 +45,13 @@ public class TreeControl implements Initializable {
         rootModel.currentDirectoryProperty().addListener(new ChangeListener<File>() {
             @Override
             public void changed(ObservableValue<? extends File> observableValue, File oldFile, File newFile) {
-                System.out.println(newFile.getAbsolutePath());
+                int index = treeModel.update(newFile.getAbsolutePath()) - 1;
+                tree.getFocusModel().focus(index);
+                tree.scrollTo(index);
             }
             
         });
+        treeModel.update(rootModel.getCurrentDirectory().getAbsolutePath());
     }
 
     private String getFullPath(TreeItem<String> selectedItem) {
