@@ -36,10 +36,6 @@ public class NavigationControl implements Initializable {
     @FXML
     private TextField currentUrl;
 
-    public void changeDirectory() {
-        NavigationService.getInstance().changeDirectory(new File(System.getProperty("java.home")));
-    }
-
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         currentUrl.textProperty().bindBidirectional(rootModel.currentDirectoryProperty(),

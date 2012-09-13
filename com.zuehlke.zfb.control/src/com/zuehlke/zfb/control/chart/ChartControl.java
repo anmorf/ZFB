@@ -39,7 +39,6 @@ public class ChartControl implements Initializable, ChangeListener<ObservableLis
         pieChart.dataProperty().addListener(this);
         pieChart.dataProperty().bindBidirectional(rootModel.getChartModel().chartDataProperty());
         pieChart.setTitle("Chart Title");
-        pieChart.setLegendVisible(true);
     }
 
     @Override
