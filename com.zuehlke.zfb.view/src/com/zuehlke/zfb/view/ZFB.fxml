@@ -14,14 +14,10 @@
         </VBox>
     </top>
     <center>
-        <SplitPane dividerPositions="0.3" focusTraversable="true" >
+        <SplitPane dividerPositions="0.3" focusTraversable="true" fx:id="content">
             <items>
                 <fx:include source="tree.fxml"/>
-                <BorderPane fx:id="content" >
-                    <center>
-                                
-                    </center>
-                </BorderPane>
+                <Group></Group>
             </items>
         </SplitPane>
     </center>
