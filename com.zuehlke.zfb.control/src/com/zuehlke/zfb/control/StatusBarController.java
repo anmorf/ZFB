@@ -16,12 +16,16 @@ import javafx.scene.control.Label;
 import java.lang.String;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import javafx.animation.ParallelTransition;
+import javafx.animation.RotateTransition;
+import javafx.animation.ScaleTransition;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.ListView;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.util.Duration;
 
 /**
  *
@@ -59,13 +63,36 @@ public class StatusBarController implements Initializable {
 
             if (file.isDirectory()) {
                 imageView.setImage(new Image("com/zuehlke/zfb/view/folder.png"));
+                animateImage();
                 list.add("contained files: " + (file.listFiles() != null ? +file.listFiles().length : 0));
             } else {
                 imageView.setImage(new Image("com/zuehlke/zfb/view/file.png"));
+                animateImage();
                 list.add("size: " + file.length() / 1000 + " KB");
             }
         }
 
         listView.setItems(list);
+    }
+
+    private void animateImage() {
+        ScaleTransition scaleTransition = 
+            new ScaleTransition(Duration.millis(500), imageView);
+        scaleTransition.setFromX(0.2f);
+        scaleTransition.setFromY(0.2f);
+        scaleTransition.setToX(1f);
+        scaleTransition.setToY(1f);
+        
+        RotateTransition rotateTransition = 
+            new RotateTransition(Duration.millis(500), imageView);
+        rotateTransition.setByAngle(360f);
+        
+        ParallelTransition parallelTransition = new ParallelTransition();
+        parallelTransition.getChildren().addAll(
+                scaleTransition,
+                rotateTransition
+        );
+
+        parallelTransition.play();
     }
 }

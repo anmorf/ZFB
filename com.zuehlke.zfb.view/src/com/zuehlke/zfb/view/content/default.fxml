@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane prefHeight="200.0" prefWidth="200.0" xmlns:fx="http://javafx.com/fxml" fx:controller="com.zuehlke.zfb.control.DefaultControl">
+  <center>
+    <Label alignment="CENTER" contentDisplay="CENTER" prefWidth="200.0" text="Help Page" />
+  </center>
+  <top>
+    <Button onAction="#close" alignment="CENTER_RIGHT" contentDisplay="RIGHT" mnemonicParsing="false" text="[x]" textOverrun="CLIP" />
+  </top>
+</BorderPane>
