@@ -9,8 +9,6 @@ import com.zuehlke.zfb.model.TreeModel;
 import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
-import javafx.beans.InvalidationListener;
-import javafx.beans.Observable;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.EventHandler;
@@ -18,7 +16,10 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeView;
+import javafx.scene.input.ClipboardContent;
+import javafx.scene.input.Dragboard;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.input.TransferMode;
 
 /**
  *
@@ -52,6 +53,23 @@ public class TreeControl implements Initializable {
             
         });
         treeModel.update(rootModel.getCurrentDirectory().getAbsolutePath());
+     
+        tree.setOnDragDetected(new EventHandler<MouseEvent>() {
+            public void handle(MouseEvent event) {
+                /* drag was detected, start a drag-and-drop gesture*/
+                /* allow any transfer mode */
+                Dragboard db = tree.startDragAndDrop(TransferMode.COPY_OR_MOVE);
+
+                ClipboardContent content = new ClipboardContent();
+                String fileLocation = getFullPath(tree.getSelectionModel().getSelectedItem());
+                content.putString(fileLocation);
+                db.setContent(content);
+
+                event.consume();
+            }
+        });
+        
+        
     }
 
     private String getFullPath(TreeItem<String> selectedItem) {
@@ -61,4 +79,5 @@ public class TreeControl implements Initializable {
         String path = getFullPath(selectedItem.getParent());
         return  path + (path.endsWith(File.separator) ? "" : File.separator) + selectedItem.getValue();
     }
+    
 }
