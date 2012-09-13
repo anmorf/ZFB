@@ -9,8 +9,6 @@ import com.zuehlke.zfb.model.TreeModel;
 import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
-import javafx.beans.InvalidationListener;
-import javafx.beans.Observable;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.EventHandler;
@@ -35,7 +33,6 @@ public class TreeControl implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         tree.setRoot(treeModel.getRoot());
-        tree.setShowRoot(false);
         tree.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent t) {

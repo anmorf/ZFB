@@ -4,11 +4,9 @@ import java.io.File;
 import java.util.ArrayDeque;
 import java.util.Deque;
 import javafx.scene.control.TreeItem;
-import javafx.scene.control.TreeView;
 
 public class TreeModel {
 
-    private final static int MAX_DEPTH = 2;
     private static TreeModel instance;
     private TreeItem<String> root = new TreeItem<>("root");
 

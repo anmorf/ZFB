@@ -6,4 +6,4 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<TreeView fx:id="tree" xmlns:fx="http://javafx.com/fxml" fx:controller="com.zuehlke.zfb.control.TreeControl"/>
+<TreeView showRoot="false" fx:id="tree" xmlns:fx="http://javafx.com/fxml" fx:controller="com.zuehlke.zfb.control.TreeControl" />
