@@ -5,6 +5,7 @@
 package com.zuehlke.zfb.control;
 
 import com.zuehlke.zfb.model.RootModel;
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -28,10 +29,10 @@ public class ContentControl implements Initializable,  ChangeListener<String>  {
     
     @FXML
     private BorderPane content;
+    
 
     private void loadContent(String centerContent) {
         try {
-            content.centerProperty().set(null);
             Node node = (Node) FXMLLoader.load(getClass().getResource(centerContent));
             content.centerProperty().setValue(node);
         } catch (IOException ex) {
