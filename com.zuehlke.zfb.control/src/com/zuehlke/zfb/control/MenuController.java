@@ -22,6 +22,9 @@ public class MenuController implements Initializable {
     public void showHelp(){
         rootModel.getCurrentView().setValue(RootModel.DEFAUL_VIEW);
     }
+    public void showSandbox(){
+        rootModel.getCurrentView().setValue(RootModel.SANDBOX_VIEW);
+    }
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {

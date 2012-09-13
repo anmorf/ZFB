@@ -20,9 +20,10 @@
             </items>
         </Menu>
         <Menu mnemonicParsing="false" text="Help">
-            <items>
-                <MenuItem onAction="#showHelp" mnemonicParsing="false" text="About" fx:id="help" />
-            </items>
+          <items>
+            <MenuItem onAction="#showHelp" mnemonicParsing="false" text="About" fx:id="help" />
+            <MenuItem onAction="#showSandbox" mnemonicParsing="false" text="Sandbox" fx:id="sanbox" />
+          </items>
         </Menu>
     </menus>
 </MenuBar>

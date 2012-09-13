@@ -25,7 +25,8 @@ public class RootModel {
     
     public static final String CHART_VIEW = "/com/zuehlke/zfb/view/chartview/chartView.fxml";
     public static final String DEFAUL_VIEW = "/com/zuehlke/zfb/view/content/default.fxml";
-
+    public static final String SANDBOX_VIEW = "/com/zuehlke/zfb/view/content/sandbox.fxml";
+    
     private static RootModel instance;
 
     public static RootModel getInstance() {
