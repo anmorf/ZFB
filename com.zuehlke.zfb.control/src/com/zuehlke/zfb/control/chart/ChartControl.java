@@ -39,7 +39,7 @@ public class ChartControl implements Initializable, ChangeListener<ObservableLis
     public void initialize(URL url, ResourceBundle rb) {
         pieChart.dataProperty().addListener(this);
         pieChart.dataProperty().bindBidirectional(rootModel.getChartModel().chartDataProperty());
-        pieChart.setTitle("Chart Title");
+        pieChart.setTitle("File distribution");
     }
 
     @Override

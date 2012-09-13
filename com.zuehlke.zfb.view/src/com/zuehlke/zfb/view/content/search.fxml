@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane fx:id="defaultContent" xmlns:fx="http://javafx.com/fxml" fx:controller="com.zuehlke.zfb.control.SearchControl">
+    <top>
+        <Button alignment="CENTER_RIGHT" contentDisplay="RIGHT" mnemonicParsing="false" onAction="#close" text="[x]" textOverrun="CLIP" />
+    </top>
+    <center>
+        <Label fx:id="searchLabel" alignment="CENTER" contentDisplay="CENTER" text="Search Pane" />
+    </center>
+</BorderPane>

@@ -20,7 +20,7 @@ public class MenuController implements Initializable {
     private RootModel rootModel = RootModel.getInstance();
     
     public void showHelp(){
-        rootModel.getCurrentView().setValue(RootModel.DEFAUL_VIEW);
+        rootModel.getCurrentView().setValue(RootModel.DEFAULT_VIEW);
     }
     public void showSandbox(){
         rootModel.getCurrentView().setValue(RootModel.SANDBOX_VIEW);

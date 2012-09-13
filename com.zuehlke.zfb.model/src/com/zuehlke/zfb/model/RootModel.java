@@ -5,12 +5,8 @@
 package com.zuehlke.zfb.model;
 
 import com.zuehlke.zfb.model.chart.ChartModel;
-import java.awt.Desktop;
 
 import java.io.File;
-import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
@@ -24,8 +20,9 @@ public class RootModel {
     
     
     public static final String CHART_VIEW = "/com/zuehlke/zfb/view/chartview/chartView.fxml";
-    public static final String DEFAUL_VIEW = "/com/zuehlke/zfb/view/content/default.fxml";
+    public static final String DEFAULT_VIEW = "/com/zuehlke/zfb/view/content/default.fxml";
     public static final String SANDBOX_VIEW = "/com/zuehlke/zfb/view/content/sandbox.fxml";
+    public static final String SEARCH_VIEW = "/com/zuehlke/zfb/view/content/search.fxml";
     
     private static RootModel instance;
 
@@ -38,6 +35,7 @@ public class RootModel {
     
     private ObjectProperty<File> currentDirectory;
     private StringProperty currentView;
+    private StringProperty searchText;
     
     private ChartModel chartModel;
 
@@ -45,6 +43,7 @@ public class RootModel {
         currentDirectory = new SimpleObjectProperty<>(new File("C:\\Users"));
         chartModel = new ChartModel(currentDirectory);
         currentView = new SimpleStringProperty(CHART_VIEW);
+        searchText = new SimpleStringProperty("");
     }
 
     public ObjectProperty<File> currentDirectoryProperty() {
@@ -73,5 +72,13 @@ public class RootModel {
 
     public void setCurrentView(StringProperty currentView) {
         this.currentView = currentView;
+    }
+
+    public StringProperty getSearchText() {
+        return searchText;
+    }
+
+    public void setSearchText(StringProperty searchText) {
+        this.searchText = searchText;
     }
 }

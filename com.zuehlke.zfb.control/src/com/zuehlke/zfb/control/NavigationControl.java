@@ -13,7 +13,6 @@ import java.util.ResourceBundle;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.effect.Reflection;
 import javafx.scene.input.DragEvent;
@@ -30,10 +29,7 @@ public class NavigationControl implements Initializable {
     private RootModel rootModel = RootModel.getInstance();
     private File file;
     @FXML
-    private Button browseButton;
-    @FXML
     private TextField currentUrl;
-    @FXML private Button searchButton;
     @FXML private TextField searchField;
 
     @Override
@@ -107,7 +103,7 @@ public class NavigationControl implements Initializable {
     }
     
     public void searchButtonAction() {
-        String input = searchField.getText();
-        System.out.println(input);
+        rootModel.getSearchText().set(searchField.getText());
+        rootModel.getCurrentView().setValue(RootModel.SEARCH_VIEW);
     }
 }
