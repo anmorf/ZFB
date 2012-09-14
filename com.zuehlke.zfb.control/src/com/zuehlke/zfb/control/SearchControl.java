@@ -8,6 +8,8 @@ import com.zuehlke.zfb.control.util.FileSearchTask;
 import com.zuehlke.zfb.model.RootModel;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.concurrent.WorkerStateEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -32,6 +34,16 @@ public class SearchControl implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        startTask();
+        rootModel.getSearchText().addListener(new ChangeListener<String>(){
+            @Override
+            public void changed(ObservableValue<? extends String> ov, String t, String t1) {
+                startTask();
+            }          
+        });
+    }
+    
+    public void startTask(){
         FileSearchTask task = new FileSearchTask(rootModel.getSearchText().getValue(), rootModel.getCurrentDirectory().toPath());
         fileListView.setItems(task.getPartialResults());
         progressIndicator.setVisible(true);

@@ -1,8 +1,8 @@
-.list-view{
+#statusBarListView .list-view{
     -fx-background-color: #cccccc;
 }
 
-.list-cell{
+#statusBarListView .list-cell{
     -fx-background-color: #cccccc;
 }
 

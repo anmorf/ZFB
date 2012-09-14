@@ -13,6 +13,6 @@
         <ImageView fx:id="imageView" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true"/>   
     </left>
     <center>       
-        <ListView fx:id="listView"  prefHeight="60.0"   /> 
+        <ListView fx:id="statusBarListView"  prefHeight="60.0"   /> 
     </center>
 </BorderPane>

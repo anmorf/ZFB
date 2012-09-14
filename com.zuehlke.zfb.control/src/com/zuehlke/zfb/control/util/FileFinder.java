@@ -7,6 +7,7 @@ import java.nio.file.attribute.*;
 import javafx.application.Platform;
 import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.collections.ObservableList;
+import javafx.concurrent.Task;
 
 public class FileFinder
         extends SimpleFileVisitor<Path> {

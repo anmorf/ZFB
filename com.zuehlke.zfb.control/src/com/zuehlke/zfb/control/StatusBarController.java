@@ -37,7 +37,7 @@ public class StatusBarController implements Initializable {
     @FXML
     Label imageUrl;
     @FXML
-    ListView listView;
+    ListView statusBarListView;
     @FXML
     ImageView imageView;
 
@@ -72,7 +72,7 @@ public class StatusBarController implements Initializable {
             }
         }
 
-        listView.setItems(list);
+        statusBarListView.setItems(list);
     }
 
     private void animateImage() {

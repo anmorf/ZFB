@@ -10,6 +10,8 @@ import com.zuehlke.zfb.service.NavigationService;
 import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -36,6 +38,13 @@ public class NavigationControl implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         currentUrl.textProperty().bindBidirectional(rootModel.currentDirectoryProperty(),
                 FileConverter.getInstance());
+        
+        currentUrl.textProperty().addListener(new ChangeListener<String>(){
+            @Override
+            public void changed(ObservableValue<? extends String> ov, String t, String t1) {
+                rootModel.getCurrentView().setValue(RootModel.CHART_VIEW);
+            }
+        });
         
         // add the drag-drop functionality
         currentUrl.setOnDragEntered(new EventHandler<DragEvent>() {

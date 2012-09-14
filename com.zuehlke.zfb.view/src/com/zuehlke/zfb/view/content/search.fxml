@@ -10,9 +10,6 @@
     <center>
         <ListView fx:id="fileListView" />
     </center>
-    <left>
-        <Label fx:id="searchLabel" alignment="CENTER" contentDisplay="CENTER" text="Search Pane" />
-    </left>
     <right>
         <ProgressIndicator fx:id="progressIndicator" />
     </right>
