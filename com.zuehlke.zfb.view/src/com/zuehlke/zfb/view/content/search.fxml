@@ -7,10 +7,16 @@
 <?import javafx.scene.layout.*?>
 
 <BorderPane fx:id="defaultContent" xmlns:fx="http://javafx.com/fxml" fx:controller="com.zuehlke.zfb.control.SearchControl">
+    <center>
+        <ListView fx:id="fileListView" />
+    </center>
+    <left>
+        <Label fx:id="searchLabel" alignment="CENTER" contentDisplay="CENTER" text="Search Pane" />
+    </left>
+    <right>
+        <ProgressIndicator fx:id="progressIndicator" />
+    </right>
     <top>
         <Button alignment="CENTER_RIGHT" contentDisplay="RIGHT" mnemonicParsing="false" onAction="#close" text="[x]" textOverrun="CLIP" />
     </top>
-    <center>
-        <Label fx:id="searchLabel" alignment="CENTER" contentDisplay="CENTER" text="Search Pane" />
-    </center>
 </BorderPane>

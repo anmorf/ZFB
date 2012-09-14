@@ -6,10 +6,13 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane fx:id="defaultContent" prefHeight="200.0" prefWidth="200.0" xmlns:fx="http://javafx.com/fxml" fx:controller="com.zuehlke.zfb.control.DefaultControl">
+<BorderPane fx:id="defaultContent" xmlns:fx="http://javafx.com/fxml" fx:controller="com.zuehlke.zfb.control.SearchControl">
     <center>
-        <Label alignment="CENTER" contentDisplay="CENTER" prefWidth="200.0" text="Help Page" />
+        <ListView fx:id="fileListView" />
     </center>
+    <left>
+        <Label fx:id="searchLabel" alignment="CENTER" contentDisplay="CENTER" text="Search Pane" />
+    </left>
     <top>
         <Button alignment="CENTER_RIGHT" contentDisplay="RIGHT" mnemonicParsing="false" onAction="#close" text="[x]" textOverrun="CLIP" />
     </top>
