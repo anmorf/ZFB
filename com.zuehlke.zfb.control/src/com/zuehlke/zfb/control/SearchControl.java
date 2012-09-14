@@ -6,6 +6,7 @@ package com.zuehlke.zfb.control;
 
 import com.zuehlke.zfb.control.util.FileSearchTask;
 import com.zuehlke.zfb.model.RootModel;
+import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.beans.value.ChangeListener;
@@ -17,6 +18,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.ProgressIndicator;
+import javafx.scene.input.MouseEvent;
 
 /**
  *
@@ -41,6 +43,14 @@ public class SearchControl implements Initializable {
                 startTask();
             }          
         });
+        
+        fileListView.setOnMouseClicked(new EventHandler<MouseEvent>() {
+        @Override
+        public void handle(MouseEvent event) {
+            String url=fileListView.getSelectionModel().getSelectedItem().toString();
+            rootModel.setCurrentDirectory(new File(url));
+        }
+    });
     }
     
     public void startTask(){

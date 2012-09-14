@@ -27,7 +27,7 @@ public class FileFinder
         Path name = file.getFileName();
         if (name != null && matcher.matches(name)) {
             numMatches++;
-            final String fname=name.toString();
+            final String fname=file.toString();
             Platform.runLater(new Runnable() {
                      @Override public void run() {
                          files.get().add(fname);
