@@ -39,12 +39,6 @@ public class NavigationControl implements Initializable {
         currentUrl.textProperty().bindBidirectional(rootModel.currentDirectoryProperty(),
                 FileConverter.getInstance());
         
-        currentUrl.textProperty().addListener(new ChangeListener<String>(){
-            @Override
-            public void changed(ObservableValue<? extends String> ov, String t, String t1) {
-                rootModel.getCurrentView().setValue(RootModel.CHART_VIEW);
-            }
-        });
         
         // add the drag-drop functionality
         currentUrl.setOnDragEntered(new EventHandler<DragEvent>() {

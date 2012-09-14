@@ -6,6 +6,7 @@ package com.zuehlke.zfb.control;
 
 import com.zuehlke.zfb.control.util.FileSearchTask;
 import com.zuehlke.zfb.model.RootModel;
+import com.zuehlke.zfb.service.NavigationService;
 import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -48,7 +49,7 @@ public class SearchControl implements Initializable {
         @Override
         public void handle(MouseEvent event) {
             String url=fileListView.getSelectionModel().getSelectedItem().toString();
-            rootModel.setCurrentDirectory(new File(url));
+            NavigationService.getInstance().changeDirectory(new File(url));
         }
     });
     }
