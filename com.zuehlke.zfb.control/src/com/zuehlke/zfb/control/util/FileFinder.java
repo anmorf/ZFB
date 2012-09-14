@@ -2,11 +2,10 @@ package com.zuehlke.zfb.control.util;
 
 import java.io.*;
 import java.nio.file.*;
-import java.nio.file.attribute.*;
 import static java.nio.file.FileVisitResult.*;
+import java.nio.file.attribute.*;
 import javafx.application.Platform;
 import javafx.beans.property.ReadOnlyObjectWrapper;
-import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 public class FileFinder
@@ -28,8 +27,6 @@ public class FileFinder
         if (name != null && matcher.matches(name)) {
             numMatches++;
             final String fname=name.toString();
-            files.get().add(fname);
-            System.out.println(file);
             Platform.runLater(new Runnable() {
                      @Override public void run() {
                          files.get().add(fname);
